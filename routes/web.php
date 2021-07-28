@@ -12,10 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::domain('{subdomain}.'.config('app.short_url'))->group(function ($subdomain) {
-    Route::get('/', function ($subdomain) {
-        return $subdomain;
-});
+
 Route::get('/', function () {
     return view('LandingPage.index');
 })->name('welcome');
@@ -33,7 +30,6 @@ Route::resource('podcasts',\App\Http\Controllers\PodcastController::class);
 Route::resource('podcasts.about', \App\Http\Controllers\PodcastAboutController::class)->only('index');
 Route::resource('podcasts.episode', \App\Http\Controllers\EpisodeController::class)->only('show');
 Route::resource('podcasts.faqs', \App\Http\Controllers\PodcastFaqsController::class)->only('index');
-
 Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(function () {
 
     Route::get('/home',\App\Http\Controllers\PodcastDashboardController::class.'@index')->name('home');

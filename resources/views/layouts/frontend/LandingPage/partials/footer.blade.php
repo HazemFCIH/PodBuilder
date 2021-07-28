@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
         <div class="row pt-3 text-center">
             <div class="col-md-12">
                 <p>
