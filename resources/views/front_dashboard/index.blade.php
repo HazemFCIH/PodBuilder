@@ -22,7 +22,7 @@
                                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 12rem;"
                                          src="{{$podcast['podcast_image']}}" alt="..."></a>
                                 <h6><a class="lead text-info mb-4" target="_blank"
-                                       href="{{route('podcasts.show',$podcast['sub_domain'])}}">podbuilder.arcast.me/podcasts/{{$podcast['sub_domain']}}</a> </h6>
+                                       href="https://{{$podcast['sub_domain']}}.arcast.me">{{$podcast['sub_domain']}}.arcast.me</a> </h6>
                             </div>
 {{--                            <div class="text-center mb-3">--}}
 {{--                                <a  href="{{route('dashboard.podcast-settings.set-index')}}" onclick="event.preventDefault();--}}

@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-6">
             <h6 class="text-right text-sm-start">
-                <a href="{{URL::to('/')}}/podcasts/{{$podcast_data->sub_domain}}" class="text-capitalize">view site
+                <a href="https://{{$podcast_data->sub_domain}}.arcast.me" target="_blank" class="text-capitalize">view site
                     <i class="fas fa-external-link-alt fa-1x ml-1"></i>
                 </a>
             </h6>

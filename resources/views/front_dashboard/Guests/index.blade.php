@@ -15,14 +15,14 @@
         </div>
         <div class="col-md-6">
             <h6 class="text-right text-sm-start">
-                <a href="{{URL::to('/')}}/podcasts/{{$podcast_data->sub_domain}}" class="text-capitalize">view site
+                <a href="https://{{$podcast_data->sub_domain}}.arcast.me" target="_blank" class="text-capitalize">view site
                     <i class="fas fa-external-link-alt fa-1x ml-1"></i>
                 </a>
             </h6>
         </div>
     </div>
 
-    <p class="mb-5">Add your Podcast guests - <a href="{{URL::to('/')}}/podcasts/{{$podcast_data->sub_domain}}" class="text-info">{{URL::to('/')}}/podcasts/{{$podcast_data->sub_domain}}</a>
+    <p class="mb-5">Add your Podcast guests - <a href="https://{{$podcast_data->sub_domain}}.arcast.me" target="_blank" class="text-info">{{$podcast_data->sub_domain}}.arcast.me</a>
     </p>
     <a href="{{route('dashboard.podcast-guests.create')}}" class="btn btn-primary btn-icon-split mb-4" >
 

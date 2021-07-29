@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <p class="mb-5">Add your socialMedia Links - <a href="{{URL::to('/')}}/podcasts/{{$podcast_data->sub_domain}}" class="text-info">{{URL::to('/')}}/podcasts/{{$podcast_data->sub_domain}}</a>
+    <p class="mb-5">Add your socialMedia Links - <a href="https://{{$podcast_data->sub_domain}}.arcast.me" target="_blank" class="text-info">{{$podcast_data->sub_domain}}.arcast.me</a>
     </p>
     <a href="{{route('dashboard.social-media.create')}}" class="btn btn-primary btn-icon-split mb-4" onclick="event.preventDefault();
         document.getElementById('socialmedia-create').submit();">

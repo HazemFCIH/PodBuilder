@@ -36,7 +36,9 @@
                 <div class="form-group">
                     @include('layouts.general._errors')
                     <input type="text" class="form-control form-control-user" id="exampleInputRss"
-                           aria-describedby="rss" name="rss_feed" placeholder="ENTER PODCAST RSS FEED...">
+                           aria-describedby="rss" name="rss_feed" placeholder="ENTER PODCAST RSS FEED..." value="{{old('rss_feed')}}">
+                    <input type="text" class="form-control form-control-user" id="exampleInputRss"
+                           aria-describedby="rss" name="sub_domain" placeholder="ENTER PODCAST DOMAIN NAME">
                 </div>
                 @auth
                     <p><input type="submit" class="btn btn-info btn-sm py-3 px-4 small btn-block" value="Create my
