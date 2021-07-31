@@ -1,14 +1,28 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
+@extends('layouts.frontend.LandingPage.partials.app')
+@section('top-section')
+    <div class="site-blocks-cover overlay inner-page-cover" style="background-image: url({{asset('assets/frontend/images/hero_bg_2.jpg')}});"
+         data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-7" data-aos="fade-up" data-aos-delay="400">
+                    <h2 class="text-white font-weight-light mb-2 display-4">Reset Password</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('mid-section')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                    <form method="POST" action="{{ route('password.update') }}" class="p-5">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -57,9 +71,9 @@
                             </div>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

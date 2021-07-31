@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,18 +23,47 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Email verify routes
+
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->middleware('auth')->name('verification.notice');
+
+
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect()->route('welcome');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+
+// home routes
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/landing-page', function (){
     return view('LandingPage.index');
 });
-Route::get('/podcast-page', function (){
-    return view('PodcastPage.index');
-});
-Route::resource('podcasts',\App\Http\Controllers\PodcastController::class);
-Route::resource('podcasts.about', \App\Http\Controllers\PodcastAboutController::class)->only('index');
-Route::resource('podcasts.episode', \App\Http\Controllers\EpisodeController::class)->only('show');
-Route::resource('podcasts.faqs', \App\Http\Controllers\PodcastFaqsController::class)->only('index');
-Route::prefix('dashboard')->middleware('auth')->name('dashboard.')->group(function () {
+
+//podcastPage Routes
+//Route::get('/podcast-page', function (){
+//    return view('PodcastPage.index');
+//});
+Route::resource('podcasts',\App\Http\Controllers\PodcastController::class)->only('store')->middleware('verified');
+//Route::resource('podcasts.about', \App\Http\Controllers\PodcastAboutController::class)->only('index');
+//Route::resource('podcasts.episode', \App\Http\Controllers\EpisodeController::class)->only('show');
+//Route::resource('podcasts.faqs', \App\Http\Controllers\PodcastFaqsController::class)->only('index');
+
+//User Dashboard Routes
+Route::prefix('dashboard')->middleware(['auth','verified'])->name('dashboard.')->group(function () {
 
     Route::get('/home',\App\Http\Controllers\PodcastDashboardController::class.'@index')->name('home');
     Route::get('/home/edit/profile',\App\Http\Controllers\HomeController::class.'@editProfile')->name('editProfile');

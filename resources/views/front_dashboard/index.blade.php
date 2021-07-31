@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <!-- RSS ATTRIBUTE! Podcast Image -->
                             <div class="text-center">
-                                <a href="{{route('podcasts.show',$podcast['sub_domain'])}}">
+                                <a href="https://{{$podcast['sub_domain']}}.arcast.me" target="_blank">
                                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 12rem;"
                                          src="{{$podcast['podcast_image']}}" alt="..."></a>
                                 <h6><a class="lead text-info mb-4" target="_blank"
