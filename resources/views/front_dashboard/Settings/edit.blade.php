@@ -52,7 +52,7 @@
                     <input type="text" class="form-control form-control-user rounded-0 text-capitalize"
                            id="examplePostName" placeholder="Podcast title" name="podcast_title" value="{{$podcast_data->podcast_title}}" required>
                     <div id="examplePostName" class="form-text text text-xs">
-                        Host name
+                        Podcast title
                     </div>
                 </div>
                 <div class="form-group">
