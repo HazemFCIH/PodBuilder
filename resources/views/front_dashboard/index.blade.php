@@ -24,17 +24,17 @@
                                 <h6><a class="lead text-info mb-4" target="_blank"
                                        href="https://{{$podcast['sub_domain']}}.arcast.me">{{$podcast['sub_domain']}}.arcast.me</a> </h6>
                             </div>
-{{--                            <div class="text-center mb-3">--}}
-{{--                                <a  href="{{route('dashboard.podcast-settings.set-index')}}" onclick="event.preventDefault();--}}
-{{--                                    document.getElementById('settings-index-{{$podcast['id']}}').submit();">--}}
-{{--                                    <i class="fas fa-cog fa-1x"></i>--}}
-{{--                                </a>--}}
-{{--                                <form id="settings-index-{{$podcast['id']}}" action="{{ route('dashboard.podcast-settings.set-index') }}" method="POST" class="d-none">--}}
-{{--                                    <input type="hidden" name="podcast_id" value="{{$podcast['id']}}">--}}
-{{--                                    @csrf--}}
-{{--                                </form>--}}
+                            <div class="text-center mb-3">
+                                <a  href="{{route('dashboard.podcast-settings.set-index')}}" onclick="event.preventDefault();
+                                    document.getElementById('settings-index-{{$podcast['id']}}').submit();">
+                                    <i class="fas fa-cog fa-1x"></i>
+                                </a>
+                                <form id="settings-index-{{$podcast['id']}}" action="{{ route('dashboard.podcast-settings.set-index') }}" method="POST" class="d-none">
+                                    <input type="hidden" name="podcast_id" value="{{$podcast['id']}}">
+                                    @csrf
+                                </form>
 
-{{--                            </div>--}}
+                            </div>
                         </div>
                     </div>
                 </div>

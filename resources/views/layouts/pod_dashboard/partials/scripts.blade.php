@@ -25,4 +25,33 @@
         }
 
     });
+
+    //delete
+    $('.delete').click(function (e) {
+
+        var that = $(this)
+
+        e.preventDefault();
+
+        var n = new Noty({
+            text: "are you sure you want to delete this podcast",
+            type: "warning",
+            killer: true,
+            buttons: [
+                Noty.button("yes", 'btn btn-danger mr-2', function () {
+                    that.closest('form').submit();
+                }),
+
+                Noty.button("no", 'btn btn-primary mr-2', function () {
+                    n.close();
+                })
+            ]
+        });
+
+        n.show();
+
+    });//end of delete
 </script>
+{{--noty--}}
+<link rel="stylesheet" href="{{ asset('assets/pod-dashboard/js/plugins/noty/noty.css') }}">
+<script src="{{ asset('assets/pod-dashboard/js/plugins/noty/noty.min.js') }}"></script>
